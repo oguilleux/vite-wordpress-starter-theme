@@ -1,0 +1,42 @@
+
+html, body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+*, *:hover, *:focus {
+    outline:0;
+}
+
+.transition, %transition {
+    transition:all 0.3s ease-in-out;
+}
+
+// tests
+.container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#image-background {
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+}
+
+.img-bg {
+    width: 360px;
+    height: 240px;
+    background-size: cover;
+    background-image: url('@/img/tom-delanoue-unsplash.jpg');
+}
