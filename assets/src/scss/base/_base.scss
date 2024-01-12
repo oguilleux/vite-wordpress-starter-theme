@@ -21,29 +21,3 @@ a:active {
 .transition, %transition {
     transition:all 0.3s ease-in-out;
 }
-
-// tests
-.container {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#image-background {
-    aspect-ratio: 1 / 1;
-    background-size: cover;
-}
-
-.img-bg {
-    width: 360px;
-    height: 240px;
-    background-size: cover;
-    background-image: url('@/img/tom-delanoue-unsplash.jpg');
-}
-
-#message {
-    width: 360px;
-    height: 240px;
-    background-size: cover;
-    //background-image: url('@static/img/tom-delanoue-unsplash.jpg');
-}
