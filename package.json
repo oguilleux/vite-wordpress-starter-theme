@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.5.1",
     "rimraf": "5.0.5",
     "sass": "1.69.7",
     "vite": "5.0.11"

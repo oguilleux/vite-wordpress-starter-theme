@@ -9,6 +9,7 @@
 import { defineConfig } from "vite";
 import { resolve } from 'path';
 import { glob } from 'glob';
+// import biomePlugin from 'vite-plugin-biome';
 
 // Get the relative path of the vite.config.js file for the alias
 const fullPath = import.meta.url.slice(0, import.meta.url.lastIndexOf('/'));
@@ -25,7 +26,7 @@ export default defineConfig({
                     server.ws.send({ type: 'full-reload', path: '*' });
                 }
             }
-        },
+        }
     ],
 
     css: {

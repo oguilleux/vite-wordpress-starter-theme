@@ -1,7 +1,6 @@
 import General from './_general';
 
 const App = {
-
 	/**
 	 * App.init
 	 */
@@ -11,8 +10,7 @@ const App = {
 			return new General();
 		}
 		initGeneral();
-	}
-
+	},
 };
 
 document.addEventListener('DOMContentLoaded', () => {
