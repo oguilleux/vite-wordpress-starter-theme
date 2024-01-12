@@ -30,10 +30,11 @@ For production sites, create your build with :
 	npm run build
 
 ## Vite & WordPress
-- All the static assets used in scss or js files (images, fonts, etc.) are copied as-is to the `dist` folder. The other images used directly in php files are <u>not copied</u>.
-- To detect dev mode in php there is no `dist` folder 
+- All the static assets used in scss or js files (images, fonts, etc.) are copied as-is to the `dist` directory. The other images used directly in php files are <u>not copied</u>.
+- To detect dev mode in php there is no `dist` directory, it is added on build.
 
 ## Troubleshooting [dev mode]
 
 - Vite needs to know the root path of your project so <u>you cannot use a subdirectory</u> as the root of your WordPress installation.
 - If you haven't started the dev server, your assets will not be compiled just `npm run dev` and refresh page.
+- In you SCSS files use the alias `@` to target the `static/` directory. ie : `background-image: url('@/img/logo.png');`
