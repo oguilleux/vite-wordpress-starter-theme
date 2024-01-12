@@ -1,4 +1,4 @@
-import General from './_generalScripts';
+import General from './_general';
 
 const App = {
 

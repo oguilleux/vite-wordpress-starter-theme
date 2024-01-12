@@ -1,5 +1,5 @@
 {
-  "name": "oguilleux/blankthemewebpack",
-  "description": "Blank Theme with Gulp and Webpack",
+  "name": "oguilleux/vitewptheme",
+  "description": "Blank Theme using Vite.js",
   "type": "wordpress-theme"
 }

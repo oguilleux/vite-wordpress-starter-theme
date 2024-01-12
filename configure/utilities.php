@@ -1,3 +1,5 @@
 <?php
 
-// Utilities functions here
+function get_static_dir() {
+	return get_template_directory_uri() . '/static';
+}

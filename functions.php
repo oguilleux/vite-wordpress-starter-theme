@@ -1,9 +1,5 @@
 <?php
 
-// VITE CONFIG
-
-include( 'configure/vite.php' );
-
 // CPT TAXONOMY
 
 include( 'configure/cpt-taxonomy.php' );

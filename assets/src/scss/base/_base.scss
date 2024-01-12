@@ -40,3 +40,10 @@ a:active {
     background-size: cover;
     background-image: url('@/img/tom-delanoue-unsplash.jpg');
 }
+
+#message {
+    width: 360px;
+    height: 240px;
+    background-size: cover;
+    //background-image: url('@static/img/tom-delanoue-unsplash.jpg');
+}

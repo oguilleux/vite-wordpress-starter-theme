@@ -10,7 +10,14 @@ import { defineConfig } from "vite";
 import { resolve } from 'path';
 import { glob } from 'glob';
 
+// Get the relative path of the vite.config.js file for the alias
+const fullPath = import.meta.url.slice(0, import.meta.url.lastIndexOf('/'));
+const getWpContentIndex = fullPath.indexOf('wp-content');
+const wpContentPath = fullPath.slice(getWpContentIndex);
+
 export default defineConfig({
+    base: './',
+
     plugins: [
         {
             handleHotUpdate({ file, server }) {
@@ -23,11 +30,6 @@ export default defineConfig({
 
     css: {
         devSourcemap: true,
-        // preprocessorOptions: {
-        //     scss: {
-        //         additionalData: '@import "./src/scss/sass_imports.scss";',
-        //     }
-        // }
     },
 
     build: {
@@ -35,6 +37,9 @@ export default defineConfig({
         manifest: true,
 
         outDir: resolve(__dirname, 'assets/dist/'),
+
+        // don't base64 images
+        assetsInlineLimit: 0,
 
         rollupOptions: {
             input: {
@@ -53,14 +58,19 @@ export default defineConfig({
                 chunkFileNames: '[name]-[hash].js',
                 assetFileNames: (assetInfo) => {
                     let extType = assetInfo.name.split('.');
-                    let extSuffix = extType[extType.length - 1];
-                    let name = assetInfo.name.split('/').pop();
-                    // stip extension
-                    name = name.replace(/\.[^/.]+$/, "");
-                    console.log(extSuffix);
 
-                    return `${extSuffix}/${name}-[hash][extname]`;
-                },
+                    // group fonts in a folder
+                    if (extType[1] === 'woff' || extType[1] === 'woff2' || extType[1] === 'ttf') {
+                        return 'fonts/[name]-[hash].[ext]';
+                    }
+
+                    // group images in a folder
+                    if (extType[1] === 'gif' || extType[1] === 'jpg' || extType[1] === 'jpeg' || extType[1] === 'png') {
+                        return 'img/[name]-[hash].[ext]';
+                    }
+
+                    return'[ext]/[name]-[hash].[ext]';
+                }
             },
         },
     },
@@ -72,14 +82,13 @@ export default defineConfig({
         },
 
         // We need a strict port to match on PHP side.
-        // You can change it. But, please update it on your .env file to match the same port
         strictPort: true,
-        port: 5173
+        port: 5173,
     },
 
     resolve: {
         alias: {
-            "@": resolve(__dirname, '../static/'),
+            '@': process.env.NODE_ENV === 'development' ? resolve(wpContentPath + '/static') : '/static'
         }
     },
 });

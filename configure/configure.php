@@ -36,22 +36,22 @@ function custom_setup() {
     remove_filter('render_block', 'wp_restore_group_inner_container');
     remove_filter('render_block', 'wp_render_layout_support_flag');
 
-	// Remove useless WP image sizes
-	remove_image_size( '1536x1536' );
-	remove_image_size( '2048x2048' );
+    // Remove useless WP image sizes
+    remove_image_size( '1536x1536' );
+    remove_image_size( '2048x2048' );
 
-	// Custom image sizes
-	// add_image_size( '424x424', 424, 424, true );
-	// add_image_size( '1920', 1920, 9999 );
+    // Custom image sizes
+    // add_image_size( '424x424', 424, 424, true );
+    // add_image_size( '1920', 1920, 9999 );
 }
 add_action('after_setup_theme', 'custom_setup');
 
 // remove default image sizes to avoid overcharging server - comment line if you need size
 function remove_default_image_sizes( $sizes) {
-	unset( $sizes['large']);
-	unset( $sizes['medium']);
-	unset( $sizes['medium_large']);
-	return $sizes;
+    unset( $sizes['large']);
+    unset( $sizes['medium']);
+    unset( $sizes['medium_large']);
+    return $sizes;
 }
 add_filter('intermediate_image_sizes_advanced', 'remove_default_image_sizes');
 
@@ -60,13 +60,13 @@ add_filter( 'big_image_size_threshold', '__return_false' );
 
 // Giving credits
 function remove_footer_admin () {
-	echo 'Thème crée par <a href="http://www.olivier-guilleux.com" target="_blank">Olivier Guilleux</a>';
+    echo 'Thème crée par <a href="http://www.olivier-guilleux.com" target="_blank">Olivier Guilleux</a>';
 }
 add_filter('admin_footer_text', 'remove_footer_admin');
 
 // Move Yoast to bottom
 function yoasttobottom() {
-	return 'low';
+    return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
@@ -75,27 +75,28 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
+remove_action('wp_head', 'wp_generator');
 
 // delete wp-embed.js from footer
 function my_deregister_scripts() {
-	wp_deregister_script( 'wp-embed' );
+    wp_deregister_script( 'wp-embed' );
 }
 add_action( 'wp_footer', 'my_deregister_scripts' );
 
 // delete jquery migrate
 function dequeue_jquery_migrate( &$scripts){
-	if(!is_admin()){
-		$scripts->remove( 'jquery');
-		$scripts->add('jquery', 'https://code.jquery.com/jquery-3.6.1.min.js', null, null, true );
-	}
+    if(!is_admin()){
+        $scripts->remove( 'jquery');
+        $scripts->add('jquery', 'https://code.jquery.com/jquery-3.6.1.min.js', null, null, true );
+    }
 }
 add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
 // add SVG to allowed file uploads
 function add_file_types_to_uploads($mime_types) {
-	$mime_types['svg'] = 'image/svg+xml';
+    $mime_types['svg'] = 'image/svg+xml';
 
-	return $mime_types;
+    return $mime_types;
 }
 add_action('upload_mimes', 'add_file_types_to_uploads', 1, 1);
 

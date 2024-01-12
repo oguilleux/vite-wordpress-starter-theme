@@ -1,9 +1,9 @@
 
-	</div><!-- #content -->
+  </div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		
-	</footer><!-- #colophon -->
+  <footer id="colophon" class="site-footer">
+
+  </footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
