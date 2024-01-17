@@ -37,4 +37,4 @@ For production sites, create your build with :
 
 - Vite needs to know the root path of your project so <u>you cannot use a subdirectory</u> as the root of your WordPress installation.
 - If you haven't started the dev server, your assets will not be compiled just `npm run dev` and refresh page.
-- In you SCSS files use the alias `@` to target the `static/` directory. ie : `background-image: url('@/img/logo.png');`
+- In your scss files use the alias `@` to target the `static/` directory. ie : `background-image: url('@/img/logo.png');`
