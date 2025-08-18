@@ -6,7 +6,7 @@
 
 - [ES6](https://github.com/lukehoban/es6features#readme) for JavaScript
 - [SASS](http://sass-lang.com/) preprocessor for CSS following [SASS Guidelines](https://sass-guidelin.es/#the-7-1-pattern)
-- [Bootstrap 5](https://getbootstrap.com/docs/5.2/getting-started/introduction/) as CSS framework ([customizable with SASS](https://getbootstrap.com/docs/5.2/customize/sass/))
+- [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/) as CSS framework ([customizable with SASS](https://getbootstrap.com/docs/5.3/customize/sass/))
 - [Vite.js](https://vitejs.dev/) to compile theme assets and provide live reload
 
 ## Requirements
