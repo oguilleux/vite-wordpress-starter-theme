@@ -1,27 +1,27 @@
 
 // abstracts
-@import "abstracts/variables";
+@use "abstracts/variables";
 
 // vendors
-@import "bootstrap";
+@use "bootstrap";
 
 // vendors overrides
-// @import "vendors/myvendor";
+// @use "vendors/myvendor";
 
 // base
-@import "base/fonts",
-        "base/base";
+@use "base/fonts";
+@use "base/base";
 
 // layout
-@import "layout/header",
-        "layout/footer",
-        "layout/forms",
-        "layout/grid";
+@use "layout/header";
+@use "layout/footer";
+@use "layout/forms";
+@use "layout/grid";
 
 // components
-@import "components/buttons",
-        "components/modal";
+@use "components/buttons";
+@use "components/modal";
 
 // pages
-@import "pages/front-page",
-        "pages/page";
+@use "pages/front-page";
+@use "pages/page";
