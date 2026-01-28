@@ -48,7 +48,6 @@ function add_vite_assets() {
 		wp_enqueue_style( $handle, $css_uri, null, null );
 	}
 }
-
 add_action( 'wp_enqueue_scripts', 'add_vite_assets', 100 );
 
 function vite_client_head_hook() {
@@ -56,7 +55,6 @@ function vite_client_head_hook() {
 		echo '<script type="module" crossorigin src="' . VITE_SERVER . '/@vite/client"></script>';
 	}
 }
-
 add_action( 'wp_head', 'vite_client_head_hook' );
 
 function add_module_type_attribute( $tag, $handle, $src ) {
@@ -67,7 +65,6 @@ function add_module_type_attribute( $tag, $handle, $src ) {
 
 	return $tag;
 }
-
 add_filter( 'script_loader_tag', 'add_module_type_attribute', 10, 3 );
 add_filter( 'style_loader_tag', 'add_module_type_attribute', 10, 3 );
 
